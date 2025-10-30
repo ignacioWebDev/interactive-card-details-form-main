@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <title>Frontend Mentor | Interactive card details form</title>
+</head>
+<body>
+  <main>
+    <div class="img-div"></div>
+      <div class="center-div">
+        <div class="div-main">
+            <form>
+              <div>
+                <input type="text">
+                <label for="cardholder-name">CARDHOLDER NAME</label>
+              </div>
+              <div>
+                <input type="text">
+                <label for="card-number">CARD NUMBER</label>
+              </div>
+              <div>
+                <input type="text">
+                <label for="exp-date">EXP. DATE (MM/YY)</label>
+              </div>
+              <div>
+                <input type="text">
+                <label for="cvc">CVC</label>
+              </div>
+            </form>
+        <button class="confirm-btn">Confirm</button>
+      </div>
+    <div class="front-card">
+      <img src="./images/card-logo.svg" alt="Card logo">
+      <div class="front-card__details">
+        <h2>0000 0000 0000 0000</h2>
+        <div class="front-card__name">
+          <h4>JANE APPLESEED</h4>
+          <h4>00/00</h4>
+        </div>
+      </div>
+    </div>
+    <div class="back-card">
+      <h3>000</h3>
+    </div>
+  </main>
+
+  <!-- Completed state start -->
+
+  Thank you!
+  We've added your card details
+  Continue
+
+  <footer className="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://www.frontendmentor.io/profile/ignacioWebDev" target="_blank"><i><b>Ignacio Bortolin</b></i></a>.
+  </footer>
+</body> 
+</html>
