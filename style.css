@@ -40,7 +40,7 @@ main {
     background-image: url(./images/bg-main-desktop.png);
     background-size: cover;
     background-position: center;
-    height: 90vh;
+    height: 100vh;
     width: 100%;
     position: relative;
 }
@@ -54,8 +54,8 @@ main {
     width: 400px;
 }
 
-.h3-title {
-    font-size: 15px;
+.label-title {
+    font-size: 14px;
     letter-spacing: 2px;
     color: var(--purple-950);
     margin-bottom: 10px;
@@ -81,9 +81,56 @@ main {
     background-clip: padding-box, border-box;
 }
 
+.div-main form {
+    width: 400px;
+    margin-bottom: 5px;
+}
 
+.div-input {
+    width: 100%;
+}
 
-.confirm-btn {
+.div-input-upper {
+    margin-bottom: 25px;
+}
+
+.div-input input {
+    width: 100%;
+    margin-top: 5px;
+}
+
+.div-card-details {
+    display: flex;
+}
+
+.div-input-flex {
+    display: flex;
+    gap: 10px;
+    justify-content: start;
+}
+
+.div-input-flex input {
+    width: 80px;
+}
+
+.div-input input::-webkit-outer-spin-button,
+.div-input input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.div-input input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.p-error {
+    display: none;
+    color: var(--red-400);
+    font-size: 14px;
+    margin: 10px 0 0 5px;
+}
+
+.submit-btn {
     width: 100%;
     padding: 15px;
     border: none;
@@ -91,6 +138,7 @@ main {
     background-color: var(--purple-950);
     color: var(--white);
     font-size: 18px;
+    cursor: pointer;
 }
 
 .front-card {
@@ -116,6 +164,7 @@ main {
     font-weight: 400;
     letter-spacing: 2px;
     color: var(--white);
+    text-align: start;
 }
 
 .front-card h4 {
@@ -164,4 +213,25 @@ main {
     font-size: 16px;
     font-weight: 500;
     letter-spacing: 2px;
+}
+
+.front-card, .back-card {
+    box-shadow: 3px 0px 3px var(--gray-400);
+}
+
+#h4-front-card-name {
+    text-align: start;
+}
+
+.attribution {
+    position: absolute;
+    text-align: center;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.attribution a {
+    text-decoration: none;
+    color: var(--red-400);
 }
