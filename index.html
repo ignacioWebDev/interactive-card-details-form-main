@@ -68,17 +68,24 @@
                   >
                 </div>
               </div>
-              <p class="p-error" id="p-error-date"></p>
+              <div class="div-p-error">
+                <p class="p-error" id="p-error-date"></p>
+                <p class="p-error" id="p-error-cvc"></p>
+              </div>
             </form>
         <button class="submit-btn" id="submit-btn" type="submit" onclick="checkInputs()">Confirm</button>
       </div>
     <div class="front-card">
       <img src="./images/card-logo.svg" alt="Card logo">
       <div class="front-card__details">
-        <h2 id="h2-front-card">0000 0000 0000 0000</h2>
+        <h2 id="h2-front-card-number">0000 0000 0000 0000</h2>
         <div class="front-card__name">
           <h4 id="h4-front-card-name">JANE APPLESEED</h4>
-          <h4 id="h4-front-card-date">00/00</h4>
+          <div class="div-h4-card">
+            <h4 id="h4-front-card-month">00</h4>
+            <h4>/</h4>
+            <h4 id="h4-front-card-year">00</h4>
+          </div>
         </div>
       </div>
     </div>

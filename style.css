@@ -130,6 +130,16 @@ main {
     margin: 10px 0 0 5px;
 }
 
+.div-p-error {
+    display: flex;
+    width: 400px;
+    gap: 100px;
+}
+
+.div-h4-card {
+    display: flex;
+}
+
 .submit-btn {
     width: 100%;
     padding: 15px;
