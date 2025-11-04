@@ -15,11 +15,11 @@
     <div class="img-div"></div>
       <div class="center-div">
         <div class="div-main">
-            <form>
+            <form id="form">
               <div class="div-input div-input-upper">
                 <label for="cardholder-name" class="label-title">CARDHOLDER NAME</label>
                 <br>
-                <input type="text" oninput="this.value = this.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúñÑ\s]/g, '')" id="cardholder-name" placeholder="Jane Appleseed" maxlength="30">
+                <input type="text" oninput="this.value = this.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúñÑ\s]/g, '')" id="cardholder-name" placeholder="e.g. Jane Appleseed" maxlength="30">
                 <p class="p-error" id="p-error-cardholder"></p>
               </div>
               <div class="div-input div-input-upper">
@@ -73,7 +73,13 @@
                 <p class="p-error" id="p-error-cvc"></p>
               </div>
             </form>
-        <button class="submit-btn" id="submit-btn" type="submit" onclick="checkInputs()">Confirm</button>
+            <button class="submit-btn" id="submit-btn" type="submit" onclick="checkInputs()">Confirm</button>
+            <div class="completed-form hidden" id="completed-form">
+              <img src="./images/icon-complete.svg" alt="">
+              <h2>THANK YOU!</h2>
+              <p>We've added your card details</p>
+              <button id="continue-btn">Continue</button>
+            </div>
       </div>
     <div class="front-card">
       <img src="./images/card-logo.svg" alt="Card logo">
@@ -93,12 +99,6 @@
       <h3 id="h3-back-card">000</h3>
     </div>
   </main>
-
-  <!-- Completed state start -->
-
-  <!-- Thank you!
-  We've added your card details
-  Continue -->
   <footer class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="https://www.frontendmentor.io/profile/ignacioWebDev" target="_blank"><i><b>Ignacio Bortolin</b></i></a>.

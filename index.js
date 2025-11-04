@@ -21,9 +21,23 @@ const pErrorCvc = document.getElementById("p-error-cvc")
 // Submit btn
 const submitBtn = document.getElementById("submit-btn")
 
+// Form
+const form = document.getElementById("form")
+
+// Completed Form Div
+const completedForm = document.getElementById("completed-form")
+
+// Continue btn from completed form
+const continueBtn = document.getElementById("continue-btn")
+
 // Function to check if the inputs are correct
 function checkInputs() {  
     
+    let name = false;
+    let card = false;
+    let date = false;
+    let cvcc = false;
+
     let nameValue = cardholderName.value.trim();
     let words = nameValue.split(/\s+/);
     const month = parseInt(expMonth.value);
@@ -33,62 +47,122 @@ function checkInputs() {
     if(nameValue.length < 3 || words.length < 2) {
         pErrorCardholder.style.display = "block";
         pErrorCardholder.textContent = "Please enter your full name";
+        cardholderName.classList.add("red-border")
     } else {
         pErrorCardholder.style.display = "none";
         h4FrontCardName.textContent = cardholderName.value;
         cardholderName.placeholder = cardholderName.value
+        cardholderName.classList.remove("red-border");
         cardholderName.value = "";
+        name = true
     }
 
 
     if (cleanNumber.trim() === "") {
         pErrorNumber.style.display = "block";
         pErrorNumber.textContent = "Can't be blank";
+        cardNumber.classList.add("red-border")
     } else if (!/^\d+$/.test(cleanNumber)) {
         pErrorNumber.style.display = "block";
         pErrorNumber.textContent = "Wrong format, numbers only";
+        cardNumber.classList.add("red-border")
     } else if (cleanNumber.length < 12) {
         pErrorNumber.style.display = "block";
         pErrorNumber.textContent = "Please enter at least 12 digits";
+        cardNumber.classList.add("red-border")
     } else {
         pErrorNumber.style.display = "none";
         h2FrontCardNumber.textContent = cardNumber.value;
         cardNumber.placeholder = cardNumber.value;
+        cardNumber.classList.remove("red-border");
         cardNumber.value = "";
+        card = true
     }
 
-
-    if (!month || month > 12 || !year || year < 0) {
+    if (!month && !year) {
+        pErrorDate.style.display = "block";
+        pErrorDate.textContent = "Can't be blank";
+        expMonth.classList.add("red-border");
+        expYear.classList.add("red-border");
+    } else if (!month) {
+        pErrorDate.style.display = "block";
+        pErrorDate.textContent = "Can't be blank";
+        expMonth.classList.add("red-border");
+        expYear.classList.remove("red-border");
+    } else if (!year) {
+        pErrorDate.style.display = "block";
+        pErrorDate.textContent = "Can't be blank";
+        expYear.classList.add("red-border");
+        expMonth.classList.remove("red-border");
+    } else if (month > 12 || year <= 0) {
         pErrorDate.style.display = "block";
         pErrorDate.textContent = "Invalid date";
+        expMonth.classList.add("red-border");
+        expYear.classList.add("red-border");
     } else if (month == 1 || year == 1) {
         pErrorDate.style.display = "block";
-        pErrorDate.textContent = "Please fill the missing number"
+        pErrorDate.textContent = "Please fill the missing number";
+        expMonth.classList.add("red-border");
+        expYear.classList.add("red-border");
     } else {
         pErrorDate.style.display = "none";
         expMonth.placeholder = expMonth.value;
         expYear.placeholder = expYear.value;
         h4FrontCardMonth.textContent = expMonth.value;
         h4FrontCardYear.textContent = expYear.value;
+        expMonth.classList.remove("red-border");
+        expYear.classList.remove("red-border");
         expMonth.value = "";
-        expYear.value = ""
+        expYear.value = "";
+        date = true
     }
+
 
     if(cvc.value.length == 0){
         pErrorCvc.style.display = "block";
-        pErrorCvc.textContent = "Can't be blank"
+        pErrorCvc.textContent = "Can't be blank";
+        cvc.classList.add("red-border")
     } else if (cvc.value.length == 1) {
         pErrorCvc.style.display = "block";
-        pErrorCvc.textContent = "Please fill the missing numbers"        
+        pErrorCvc.textContent = "Please fill the missing numbers";
+        cvc.classList.add("red-border")
     } else if (cvc.value.length == 2) {
         pErrorCvc.style.display = "block";
-        pErrorCvc.textContent = "Please fill the missing number"        
+        pErrorCvc.textContent = "Please fill the missing number";
+        cvc.classList.add("red-border")        
     } else {
         pErrorCvc.style.display = "none";
         cvc.placeholder = cvc.value;
         h3BackCard.textContent = cvc.value;
-        cvc.value = ""
+        cvc.classList.remove("red-border");
+        cvc.value = "";
+        cvcc = true
+    }
+
+    if (name === true && card === true && date === true && cvcc === true) {
+        form.classList.add("hidden");
+        submitBtn.classList.add("hidden");
+        completedForm.classList.remove("hidden")
     }
 }
 
+function clearData () {
+    cardholderName.placeholder = "e.g. Jane Appleseed";
+    cardNumber.placeholder = "e.g. 1234 5678 9123 0000";
+    expMonth.placeholder = "MM";
+    expYear.placeholder = "YY";
+    cvc.placeholder = "e.g. 123";
+    h2FrontCardNumber.textContent = "0000 0000 0000 0000";
+    h4FrontCardName.textContent = "JANE APPLESEED";
+    h4FrontCardMonth.textContent = "00";
+    h4FrontCardYear.textContent = "00";
+    h3BackCard.textContent = "000";
+}
+
+continueBtn.onclick = function () {
+    clearData();
+    form.classList.remove("hidden");
+    submitBtn.classList.remove("hidden");
+    completedForm.classList.add("hidden")
+}
 
