@@ -14,6 +14,7 @@
 
 body {
     min-height: 100vh;
+    height: 100%;
     width: 100%;
     font-family: 'Space Grotesk', sans-serif;
 }
@@ -239,7 +240,7 @@ main {
 
 .back-card {
     position: absolute;
-    top: 60%;
+    top: 63%;
     left: 30%;
     transform: translate(-50%, -50%);
     border-radius: 10px;
@@ -281,4 +282,155 @@ main {
 .attribution a {
     text-decoration: none;
     color: var(--red-400);
+}
+
+@media (max-width: 1366px) {
+    main {
+        grid-template-columns: 450px 1fr;
+    }
+    .div-main {
+        width: 400px;
+    }
+    .front-card {
+        top: 27%;
+        left: 22%;
+    }
+    .back-card {
+        top: 65%;
+        left: 27%;
+    }
+}
+
+@media (max-width: 1024px) {
+    main {
+        grid-template-columns: 320px 1fr;
+    }
+    .div-main {
+        width: 300px;
+        gap: 15px;
+    }
+    .div-main input {
+        border: 1px solid var(--gray-200);
+        font-size: 16px;
+        padding: 8px 13px;
+    }
+    .div-main input:focus {
+        border: 1px solid transparent;
+    }   
+    .label-title {
+        font-size: 11px;
+    }
+    .div-input-upper {
+        margin-bottom: 15px;
+    }
+    .div-input input {
+        margin-top: 3px;
+    }
+    .div-input-flex {
+        gap: 5px;
+
+    }
+    .div-input-flex input {
+        width: 60px;
+    }
+    .p-error {
+        font-size: 12px;
+    }
+    .div-p-error {
+        display: flex;
+        width: 300px;
+        gap: 50px;
+    } 
+    .red-border {
+        border: 1px solid var(--red-400) !important;
+    }  
+    .submit-btn {
+        padding: 10px;
+        font-size: 13px;
+    }
+    .completed-form {
+        gap: 10px;
+        width: 300px;
+    }
+    .completed-form img {
+        width: 50px;
+    }
+    .completed-form h2 {
+        font-size: 20px;
+    }
+    .completed-form p {
+        font-size: 12px;
+    }
+    .completed-form button {
+        padding: 10px;
+        font-size: 13px;
+        margin-top: 10px;
+    }
+    .front-card {
+        top: 30%;
+        left: 23%;
+        width: 300px;
+        height: 180px;
+        padding: 20px;
+    }
+    .front-card img {
+        width: 60px;
+        height: auto;
+    }
+    .front-card  h2 {
+        font-size: 18px;
+    }
+    .front-card h4 {
+        font-size: 13px;
+    }
+    .back-card {
+        top: 58%;
+        left: 29%;
+        width: 300px;
+        height: 180px;
+        padding: 20px;
+    }
+    .back-card h3 {
+        font-size: 14px;
+        top: 43%;
+        left: 38%;
+    }
+    .attribution {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 768px) {
+    main {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows:  auto;
+        min-height: 100vh;
+        background-color: hsl(270, 20%, 96%);
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 18px;
+        justify-content: center;
+        align-items: center;
+    }
+    .center-div {
+        width: 100%;
+        height: 100%;
+        min-height: calc(100vh - 300px);
+    }
+    .img-div {
+        height: 300px;
+    }
+    .front-card {
+        top: 34%;
+        left: 45%;
+        z-index: 100;
+    }
+    .back-card {
+        top: 20%;
+        left: 55%;
+        z-index: 50;
+    }
+    .front-card, .back-card {
+        box-shadow: none;
+    }
 }
