@@ -47,7 +47,7 @@ function checkInputs() {
     if(nameValue.length < 3 || words.length < 2) {
         pErrorCardholder.style.display = "block";
         pErrorCardholder.textContent = "Please enter your full name";
-        cardholderName.classList.add("red-border")
+        cardholderName.classList.add("red-border");
     } else {
         pErrorCardholder.style.display = "none";
         h4FrontCardName.textContent = cardholderName.value;
@@ -61,15 +61,19 @@ function checkInputs() {
     if (cleanNumber.trim() === "") {
         pErrorNumber.style.display = "block";
         pErrorNumber.textContent = "Can't be blank";
-        cardNumber.classList.add("red-border")
+        cardNumber.classList.add("red-border");
     } else if (!/^\d+$/.test(cleanNumber)) {
         pErrorNumber.style.display = "block";
         pErrorNumber.textContent = "Wrong format, numbers only";
-        cardNumber.classList.add("red-border")
+        cardNumber.classList.add("red-border");
+        h2FrontCardNumber.textContent = cardNumber.value;
+        cardNumber.placeholder = cardNumber.value;
     } else if (cleanNumber.length < 12) {
         pErrorNumber.style.display = "block";
         pErrorNumber.textContent = "Please enter at least 12 digits";
-        cardNumber.classList.add("red-border")
+        cardNumber.classList.add("red-border");
+        h2FrontCardNumber.textContent = cardNumber.value;
+        cardNumber.placeholder = cardNumber.value;
     } else {
         pErrorNumber.style.display = "none";
         h2FrontCardNumber.textContent = cardNumber.value;
@@ -89,21 +93,33 @@ function checkInputs() {
         pErrorDate.textContent = "Can't be blank";
         expMonth.classList.add("red-border");
         expYear.classList.remove("red-border");
+        expMonth.placeholder = expMonth.value;
+        h4FrontCardMonth.textContent = expMonth.value;
     } else if (!year) {
         pErrorDate.style.display = "block";
         pErrorDate.textContent = "Can't be blank";
         expYear.classList.add("red-border");
         expMonth.classList.remove("red-border");
+        expYear.placeholder = expYear.value;
+        h4FrontCardYear.textContent = expYear.value;
     } else if (month > 12 || year <= 0) {
         pErrorDate.style.display = "block";
         pErrorDate.textContent = "Invalid date";
         expMonth.classList.add("red-border");
         expYear.classList.add("red-border");
-    } else if (month == 1 || year == 1) {
+        expMonth.placeholder = expMonth.value;
+        expYear.placeholder = expYear.value;
+        h4FrontCardMonth.textContent = expMonth.value;
+        h4FrontCardYear.textContent = expYear.value;
+    } else if (month === 1 || year === 1) {
         pErrorDate.style.display = "block";
         pErrorDate.textContent = "Please fill the missing number";
         expMonth.classList.add("red-border");
         expYear.classList.add("red-border");
+        expMonth.placeholder = expMonth.value;
+        expYear.placeholder = expYear.value;
+        h4FrontCardMonth.textContent = expMonth.value;
+        h4FrontCardYear.textContent = expYear.value;
     } else {
         pErrorDate.style.display = "none";
         expMonth.placeholder = expMonth.value;
@@ -118,18 +134,22 @@ function checkInputs() {
     }
 
 
-    if(cvc.value.length == 0){
+    if(cvc.value.length === 0){
         pErrorCvc.style.display = "block";
         pErrorCvc.textContent = "Can't be blank";
-        cvc.classList.add("red-border")
-    } else if (cvc.value.length == 1) {
+        cvc.classList.add("red-border");
+    } else if (cvc.value.length === 1) {
         pErrorCvc.style.display = "block";
         pErrorCvc.textContent = "Please fill the missing numbers";
-        cvc.classList.add("red-border")
-    } else if (cvc.value.length == 2) {
+        cvc.classList.add("red-border");
+        cvc.placeholder = cvc.value;
+        h3BackCard.textContent = cvc.value;
+    } else if (cvc.value.length === 2) {
         pErrorCvc.style.display = "block";
         pErrorCvc.textContent = "Please fill the missing number";
-        cvc.classList.add("red-border")        
+        cvc.classList.add("red-border");
+        cvc.placeholder = cvc.value;
+        h3BackCard.textContent = cvc.value;        
     } else {
         pErrorCvc.style.display = "none";
         cvc.placeholder = cvc.value;
