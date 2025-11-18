@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <title>Frontend Mentor | Interactive card details form</title>
+</head>
+<body>
+  <main>
+    <div class="img-div"></div>
+      <div class="center-div">
+        <div class="div-main">
+            <form id="form">
+              <div class="div-input div-input-upper">
+                <label for="cardholder-name" class="label-title">CARDHOLDER NAME</label>
+                <br>
+                <input 
+                  type="text" 
+                  oninput="
+                    this.value = this.value.replace(/[^A-Za-zÁÉÍÓÚáéíóúñÑ\s]/g, '');
+                    this.value = this.value.slice(0,30);" 
+                  id="cardholder-name" 
+                  placeholder="e.g. Jane Appleseed" 
+                  maxlength="30"
+                >
+                <p class="p-error" id="p-error-cardholder"></p>
+              </div>
+              <div class="div-input div-input-upper">
+                <label for="card-number" class="label-title">CARD NUMBER</label>
+                <br>
+                <input type="text" id="card-number" placeholder="e.g. 1234 5678 9123 0000" maxlength="19">
+                <p class="p-error" id="p-error-number"></p>
+              </div>
+              <div class="div-card-details">
+                <div class="div-input div-input_card-details">
+                  <label for="exp-date" class="label-title">EXP. DATE (MM/YY)</label>
+                  <br>
+                  <div class="div-input-flex">
+                    <input 
+                      type="text" 
+                      id="exp-month" 
+                      inputmode="numeric" 
+                      placeholder="MM" 
+                      maxlength="2" 
+                      pattern="\d{2}" 
+                      oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0,2)"
+                    >
+                    <input 
+                      type="text" 
+                      id="exp-year" 
+                      inputmode="numeric" 
+                      placeholder="YY" 
+                      maxlength="2" 
+                      pattern="\d{2}" 
+                      oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0,2)"
+                    >
+
+                  </div>
+                </div>
+                <div class="div-input">
+                  <label for="cvc" class="label-title">CVC</label>
+                  <br>
+                  <input 
+                    type="text" 
+                    id="cvc" 
+                    inputmode="numeric" 
+                    placeholder="e.g. 123" 
+                    maxlength="3" 
+                    pattern="\d{3}" 
+                    oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0,3)"
+                  >
+                </div>
+              </div>
+              <div class="div-p-error">
+                <p class="p-error" id="p-error-date"></p>
+                <p class="p-error" id="p-error-cvc"></p>
+              </div>
+            </form>
+            <button class="submit-btn" id="submit-btn" type="submit" onclick="checkInputs()">Confirm</button>
+            <div class="completed-form hidden" id="completed-form">
+              <img src="./images/icon-complete.svg" alt="">
+              <h2>THANK YOU!</h2>
+              <p>We've added your card details</p>
+              <button id="continue-btn">Continue</button>
+            </div>
+      </div>
+    <div class="front-card">
+      <img src="./images/card-logo.svg" alt="Card logo">
+      <div class="front-card__details">
+        <h2 id="h2-front-card-number">0000 0000 0000 0000</h2>
+        <div class="front-card__name">
+          <h4 id="h4-front-card-name">JANE APPLESEED</h4>
+          <div class="div-h4-card">
+            <h4 id="h4-front-card-month">00</h4>
+            <h4>/</h4>
+            <h4 id="h4-front-card-year">00</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="back-card">
+      <h3 id="h3-back-card">000</h3>
+    </div>
+  </main>
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://www.frontendmentor.io/profile/ignacioWebDev" target="_blank"><i><b>Ignacio Bortolin</b></i></a>.
+  </footer>
+  <script src="index.js"></script>
+</body> 
+</html>
